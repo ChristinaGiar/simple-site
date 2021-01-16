@@ -76,6 +76,7 @@ a{
     transition: .5s;
 }
 
+
 nav ul li{
     list-style: none;
     margin: 40px 20px;
@@ -153,7 +154,6 @@ nav ul li a {
 .features-col img {
     width: 100px;
     height: 100px;
-
 }
 .features-col p {
     font-size: 15px;
@@ -280,6 +280,8 @@ form input{
     height: 80px;
     display: block;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 @media only screen and (max-width: 770px){
