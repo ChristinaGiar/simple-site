@@ -11,17 +11,17 @@ body{
 
 #banner{
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3 ),rgba(203,188,178, 0.8)), url(photos/plant.jpg); /*  */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3 ),rgba(203,188,178, 0.8)), url(photos/plant.jpg); 
     background-position: center ;
     background-size: cover;
 
 
 }
 h1{
-    font-size: 40px;
+    font-size: 35px;
 }
 p{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .logo{
@@ -37,16 +37,16 @@ p{
 
 .banner-text{
     text-align: center;
-    margin-top: 140px;
+    margin-top: 70px;
     color: beige;
 }
 
 .banner-text h1{
-    font-size: 80px;
+    font-size: 70px;
 }
 
 .banner-text p{
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .btn {
@@ -85,6 +85,12 @@ nav ul li{
 nav ul li a {
     text-decoration: none;
     color: #ffffff;
+    display: block;
+}
+nav ul li a:hover{
+    text-decoration: underline overline;
+    text-decoration-thickness: 0.2rem;
+    color: #ffffff;
 }
 
 #menuBtn{
@@ -96,6 +102,7 @@ nav ul li a {
     cursor: pointer;
     
 }
+/* -------------------- ABOUT SECTION -------------------------- */
 
 #about {
     padding: 100px 0;
@@ -120,8 +127,10 @@ nav ul li a {
 .about-text{
     max-width: 500px;
     margin-left: 100px;
-    display: inline-block; /* allows the element to take the height/width we gave to it */
 }
+
+
+/* -------------------- FEATURES SECTION -------------------------- */
 
 #features{
     padding-top: 50px;
@@ -146,11 +155,7 @@ nav ul li a {
     cursor: pointer;
     background: #CBBCB2;
 }
-#icon{
-    margin-top: 30px;
-    width: 40px;
-    height: 40px;
-}
+
 .features-col img {
     width: 100px;
     height: 100px;
@@ -161,6 +166,24 @@ nav ul li a {
 .features-col:hover{
     background: darkslategrey;
 }
+
+#icon{
+    position: relative;
+    margin-top: 30px;
+    width: 35px;
+    height: 35px;
+    left: 47%;
+    bottom: 10%;
+    transform: translateY(40%);
+    transition: left 0.5s;
+}
+
+.features-col:hover #icon{
+    left: 50%;
+}
+
+
+/* -------------------- PRODUCTS SECTION -------------------------- */
 
 #products{
     padding: 100px 0;
@@ -180,12 +203,89 @@ nav ul li a {
 .products-text{
     max-width: 500px;
     margin-right: 100px;
-    display: inline-block;
 }
 .products-right-col img{
     width: 100%;
 }
 
+
+/* -------------------- REVIEWS SECTION -------------------------- */
+
+/* --- SWIPER --- */
+.reviews-text{
+    padding-top: 100px;
+}
+.swiper-container {
+    width: 80%;
+    height: 100%;
+  }
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* margin: 30px; */
+    margin-top: 2rem;
+    transition: 0.5s;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+.swiper-slide:hover {
+    transform: translateY(-20px);
+  }
+.swiper-slide a{
+    padding: 0px;
+    margin: 0px;
+      
+  }
+.swiper-slide img{
+    padding: 0px;
+    width: 100%;
+    margin: 0px;
+}
+.swiper-pagination{
+      display: none;
+  }
+
+/* --- overlay text to image --- */
+.swiper-slide{
+    position: relative;
+    display: block;
+}
+.overlay-text{
+    position: absolute;
+    color: black;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 700;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    /* text-shadow:  darkslategrey 1px 0 2px;; */
+    transform: translate(-50%, -300%);
+    -ms-transform: translate(-50%, -50%);
+    transition: .5s ease;
+}
+.swiper-slide:hover .overlay-text{
+    opacity: 1;
+}
+.swiper-slide:hover img{
+    opacity: 0.8;
+}
+
+
+/* -------------------- FORM SECTION -------------------------- */
 
 form{
     max-width: 350px;
@@ -196,11 +296,20 @@ form input{
     padding: 12px 10px;
     margin-bottom: 5px;
     border: 3px solid #CBBCB2;
+    box-sizing: border-box;
 }
+
+
+/* -------------------- CONTACT SECTION -------------------------- */
 
 .contact-row{
     margin-top: 120px;
+    padding-top: 100px;
+
 }
+
+
+/* -------------------- FOOTER SECTION -------------------------- */
 
 .footer-row{
     display: flex;
@@ -241,6 +350,7 @@ form input{
 .footer-copyright, .footer-logo{
     flex:40%;
 }
+
 .footer-copyright{
     margin-top: 40px;
 }
@@ -250,40 +360,61 @@ form input{
     background: linear-gradient( #3b6363, rgba(0, 0, 0, 0.5 ));
 }
 
+
+/* -------------------- SOCIAL MEDIA -------------------------- */
+
 .social-media{
-    width: 50px;
+    /* width: 50px; */
     position: fixed; /* freeze position */
     z-index: 1;
-    top:50%;
-    
-    transform: translateY(-50%); /* vertical */
-
+    top:50%;  
+    text-align: center;
+    transform: translateY(-50%); 
 }
 
-.social-media img{
-    display: block;
-    padding-top: 10px;
-    padding-left: 10px;
+.social-media i{
+    text-align: center;
+    display: block; /* vertical */
+    padding-top: 0.7rem;
+    margin-left: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
+    color: #181717;
+    transition: all .3s ease-in-out .07s;
 }
+.social-media i:hover{
+    color: #CBBCB2;
+    transform: scaleX(-1);
+    
+}
+
+
+/* -------------------- GO TO TOP ARROW -------------------------- */
 
 .go-to-top{
     position: fixed; 
     z-index: 1;
-    top:80%;
-    left:90%;
+    top:87%;
+    left:92%;
     
 }
 
-.go-to-top img{
-    width: 80px;
-    height: 80px;
+.go-to-top i{
+    color: #CBBCB2;
+    font-size: 4rem;
     display: block;
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.3s;
+    transition: color 0.8s;
+}
+.go-to-top i:hover{
+
+    color: #181717;
 }
 
+
+/* -------------------- MEDIA -------------------------- */
 @media only screen and (max-width: 770px){
     #banner{
         background: none;
@@ -293,7 +424,7 @@ form input{
         font-size: 20px;
     }
     p{
-        font-size: 15px;
+        font-size: 17px;
     }
     .banner-text h1{
         font-size: 35px;       
@@ -313,24 +444,27 @@ form input{
     }
     
     .banner-text{
-        margin-top: 100px;
+        margin-top: 120px;
     }
     #menuBtn{
         width: 40px;
         right: 50px;      
     }
     .btn {
+        margin-top: 60px;
         padding: 10px 16px;
     }
-    .social-media img{
-        width: 14px;
-        padding-top: 15px auto;
+
+    .social-media i{
+        padding-left: 0.7rem;
+        font-size: 1.1rem; 
     }
+
     .about-left-col, .about-right-col {
         flex-basis: 100%;
     }
     .about-text{
-        margin: 50px 50px 0;
+        margin: 50px 15px 0 0px;
         display: inline-block;
     }
     .about-text h2{
@@ -340,13 +474,30 @@ form input{
         flex-basis: 100%;
         margin-bottom: 20px;    
     }
+    #products{
+        padding: 50px 0;
+    }
     .products-left-col{
         flex-basis: 100%; 
     }
     .products-right-col{
         flex-basis: 100%;
         margin-top: 60px; 
-   
+       
+    }
+    #products{
+        padding: 20px 0 50px;
+    
+    }
+    .products-text{
+        margin: 50px 15px 0 0px;
+        display: inline-block;
+    }
+    .swiper-slide:hover {
+        transform: none;
+    }
+    .overlay-text{
+        font-size: 17px;
     }
     .footer-left-col, .footer-right-col{
         flex-basis: 100%;
@@ -356,9 +507,13 @@ form input{
     }
 
     .go-to-top{
-        top:80%;
-        left:75%;
-        
+        top:87%;
+        left:80%;  
+    }
+    
+    .go-to-top i{
+        color: white;
+        font-size: 3rem;
     }
 
     #icon{
@@ -366,10 +521,6 @@ form input{
         height: 30px;
     }
 
-    .go-to-top img{
-        width: 40px;
-        height: 40px;
 
-    }
 
 }
