@@ -83,3 +83,12 @@ var swiper = new Swiper('.swiper-container', {
 });
 
 
+// parallax effect on call section ------------------------
+
+const target = document.querySelector('#offer');
+window.addEventListener("scroll", function () {
+    let offset = window.pageYOffset;
+    target.style.backgroundPositionY = offset * -0.2 + "px";
+    target.style.transition = 'all .3s ease';
+});
+

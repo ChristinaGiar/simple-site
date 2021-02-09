@@ -218,6 +218,8 @@ nav ul li a:hover{
 .swiper-container {
     width: 80%;
     height: 100%;
+    margin-bottom: 100px;
+
   }
 
 .swiper-slide {
@@ -284,6 +286,80 @@ nav ul li a:hover{
     opacity: 0.8;
 }
 
+
+/* -------------------- COUNTER SECTION ----------------------- */
+.counter-row{
+
+    margin: 200px 100px 120px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.cube{
+    /* padding: 15px; */
+    height: 120px;
+    width: 120px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+
+    transform: rotate(45deg);
+
+    /*text-align: center;*/     /* not needed */
+
+}
+.cube .cube-content{
+    transform: rotate(-45deg);
+    margin: 25px auto;
+}
+.cube-content p{
+    font-size: 36px;
+}
+.cube-content i{
+    font-size: 20px;
+    color: #CBBCB2;
+
+
+}
+
+.first-elem, .second-elem, .third-elem, .fourth-elem{
+    display: flex;
+    align-items: center;  
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+}
+.sector{
+    margin-top: 40px;
+    font-size: 20px;
+    color: #CBBCB2;
+    word-wrap: break-word;
+}
+
+@media only screen and (max-width: 992px){
+    .first-elem, .second-elem, .third-elem, .fourth-elem{
+        flex-basis: 50%;
+    }
+    .first-elem, .second-elem{
+        margin-bottom: 80px;
+    }
+}
+
+/* -------------------- OFFER SECTION -------------------------- */
+
+#offer{
+    /* background-repeat: no-repeat; */
+    background-position: center;
+  background-size: cover;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .3),
+        rgba(0, 0, 0, .5)),
+        url(https://images.unsplash.com/photo-1507662228758-08d030c4820b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80);
+}
+.offer-row{
+    text-align: center;    
+    padding: 30vh 200px;
+}
 
 /* -------------------- FORM SECTION -------------------------- */
 
@@ -456,7 +532,7 @@ form input{
     }
 
     .social-media i{
-        padding-left: 0.7rem;
+        margin-left: 0.7rem;
         font-size: 1.1rem; 
     }
 
@@ -499,6 +575,7 @@ form input{
     .overlay-text{
         font-size: 17px;
     }
+
     .footer-left-col, .footer-right-col{
         flex-basis: 100%;
     }
@@ -520,6 +597,7 @@ form input{
         width: 30px;
         height: 30px;
     }
+
 
 
 
