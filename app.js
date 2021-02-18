@@ -81,6 +81,37 @@ var swiper = new Swiper('.swiper-container', {
         clickable: true,
     },
 });
+// counter ----------------------------------
+
+const counters = document.querySelectorAll('.counter');
+const speed = 200;
+
+window.addEventListener("scroll", function generateCounter() {
+    const elementTarget = document.querySelector('#reviews');
+    if (window.scrollY > (elementTarget.offsetTop)) {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText);
+
+                const inc = (target) / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    // start/continue loop
+                    setTimeout(updateCount, 60);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCount();
+        });
+    }
+    //occurs only once
+    // window.removeEventListener('scroll', generateCounter);
+});
+
 
 
 // parallax effect on call section ------------------------
@@ -88,7 +119,7 @@ var swiper = new Swiper('.swiper-container', {
 const target = document.querySelector('#offer');
 window.addEventListener("scroll", function () {
     let offset = window.pageYOffset;
-    target.style.backgroundPositionY = offset * -0.2 + "px";
-    target.style.transition = 'all .3s ease';
+    target.style.backgroundPositionY = offset * 0.05 + "px";
+    target.style.transition = 'all .7s ease';
 });
 
