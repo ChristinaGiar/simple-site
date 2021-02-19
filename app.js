@@ -84,7 +84,7 @@ var swiper = new Swiper('.swiper-container', {
 // counter ----------------------------------
 
 const counters = document.querySelectorAll('.counter');
-const speed = 200;
+const speed = 2000000;
 
 window.addEventListener("scroll", function generateCounter() {
     const elementTarget = document.querySelector('#reviews');
