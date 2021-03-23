@@ -1,2 +1,2 @@
 # simple-site
-Responsive Website
+Responsive One Page Website
