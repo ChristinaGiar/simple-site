@@ -1,8 +1,8 @@
 var menuNav = document.getElementById("menu");
 var menuBtn = document.getElementById("menuBtn");
 
-let sections = document.querySelectorAll("section")
-let lis = document.querySelectorAll("#menu li a")
+let sections = document.querySelectorAll("section");
+let lis = document.querySelectorAll("#menu li a");
 
 
 
@@ -81,8 +81,8 @@ var swiper = new Swiper('.swiper-container', {
         clickable: true,
     },
 });
-// counter ----------------------------------
 
+// counter ----------------------------------
 const counters = document.querySelectorAll('.counter');
 const speed = 2000000;
 
@@ -115,11 +115,54 @@ window.addEventListener("scroll", function generateCounter() {
 
 
 // parallax effect on call section ------------------------
+const target = document.querySelector('#offer-img');
 
-const target = document.querySelector('#offer');
-window.addEventListener("scroll", function () {
-    let offset = window.pageYOffset;
-    target.style.backgroundPositionY = offset * 0.05 + "px";
-    target.style.transition = 'all .7s ease';
+const startParallaxEffect = function (entries, observer) {
+    const [entry] = entries;
+    // console.log(entry);
+
+    if (entry.isIntersecting) {
+        window.addEventListener("scroll", function () {
+            //target.getBoundingClientRect().top is decreased 0 when section is on top of viewport
+            target.style.backgroundPositionY = -target.getBoundingClientRect().top * 0.07 + "px";
+            //console.log(target.style.backgroundPositionY);
+
+            // right only when parallax is applied to a section at the beginning of the site
+            //target.style.backgroundPositionY = window.pageYOffset * 0.07 + "px";
+
+            target.style.transition = 'all .7s ease';
+        });
+    }
+    else return;
+    observer.unobserve(entry.target);
+
+}
+
+const offerObserver = new IntersectionObserver
+    (startParallaxEffect, {
+        root: null,
+        threshold: 0,
+    });
+offerObserver.observe(target);
+
+
+///////////////////////////////////////////
+// Reveal Sections
+const allSections = document.querySelectorAll(".section");
+
+const revealSection = function (entries, observer) {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove('section-hidden');
+
+    observer.unobserve(entry.target);
+
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, { root: null, threshold: .15 });
+
+allSections.forEach(function (section) {
+    sectionObserver.observe(section);
+    section.classList.add('section-hidden');
 });
-
